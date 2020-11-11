@@ -1,9 +1,12 @@
 import logging
 import json
 from json.decoder import JSONDecodeError
+from colorlog import ColoredFormatter
 
-log_format = logging.Formatter('%(asctime)s | %(levelname)-4s | '
-                               '%(name)s | %(message)s')
+LOGFORMAT = ('%(log_color)s %(asctime)s | %(levelname)-4s | '
+             '%(name)s | %(message)s')
+
+log_format = ColoredFormatter(LOGFORMAT)
 
 
 class Logger():
