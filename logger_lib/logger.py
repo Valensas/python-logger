@@ -1,12 +1,14 @@
 import logging
 import json
 from json.decoder import JSONDecodeError
-from colorlog import ColoredFormatter
+from rich.logging import RichHandler
 
-LOGFORMAT = ('%(log_color)s %(asctime)s | %(levelname)-4s | '
-             '%(name)s | %(message)s')
+FORMAT = "%(message)s"
+logging.basicConfig(
+    level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
+) 
+log_format  = logging.getLogger("rich")
 
-log_format = ColoredFormatter(LOGFORMAT)
 
 
 class Logger():
